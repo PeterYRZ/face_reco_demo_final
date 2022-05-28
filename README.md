@@ -18,6 +18,7 @@
 #### 安装教程
 
 ##### 体验本项目成果请从release页面下载
+[Windows Release V1.0-beta](https://gitee.com/youhuangforest/face_reco_demo_final/releases/v1.0-beta)
 
 ##### 使用源码运行的用户请按照以下方式操作
 
