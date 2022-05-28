@@ -32,8 +32,10 @@ Release:
 pip install -r requirements.txt
 ```
 
-3.  运行ui_main.py或添加运行ui_main.py的运行配置，不需要输入参数
-4.  若运行出现错误，且错误为缺少安装包，请自行 pip install 对应的包名。
+3.  请下载[shape_predictor_68_face_landmarks.dat](http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2)和[dlib_face_recognition_resnet_model_v1](http://dlib.net/files/dlib_face_recognition_resnet_model_v1.dat.bz2)，解压到本项目data\data_dlib中，然后分别复制一份，重命名为“dlib_face_recognition_resnet_model_v1_reco.dat”和“shape_predictor_68_face_landmarks_reco.dat”，你可以在代码中看到四个名字
+4.  请下载[ppgan](https://gitee.com/paddlepaddle/PaddleGAN/tree/develop/ppgan)中的文件（apps，datasets，engins，__init__.py，version.py等全部文件），装入paddle_gan\ppgan文件夹中，保证引用"from paddle_gan.ppgan.apps import *"等语句不会出现问题
+5.  运行ui_main.py或添加运行ui_main.py的运行配置，不需要输入参数
+6.  若运行出现错误，且错误为缺少安装包，请自行 pip install 对应的包名。
 
 #### 使用说明
 
