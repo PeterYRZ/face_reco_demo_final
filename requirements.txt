@@ -1,0 +1,16 @@
+dlib==19.23.1
+imageio==2.15.0
+munch==2.5.0
+natsort==8.1.0
+numpy==1.19.3
+opencv_python==4.5.5.64
+paddlepaddle_gpu==2.3.0.post112
+pandas==1.1.5
+Pillow==8.4.0
+PyQt5==5.15.6
+PyYAML==6.0
+requests==2.27.1
+scikit_image==0.17.2
+scipy==1.5.4
+six==1.16.0
+tqdm==4.64.0
