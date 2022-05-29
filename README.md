@@ -24,7 +24,7 @@
 Release:
 [Windows Release V1.0-beta](https://gitee.com/youhuangforest/face_reco_demo_final/releases/v1.0-beta)
 百度网盘：
-[Windows Release V1.0-beta 百度网盘链接 提取码：0d6s](链接：https://pan.baidu.com/s/1HohFDzmu3LVf_yJHeAFAig)
+[Windows Release V1.0-beta 百度网盘链接 提取码：0d6s](链接：https://pan.baidu.com/s/1HohFDzmu3LVf_yJHeAFAig)https://pan.baidu.com/s/1HohFDzmu3LVf_yJHeAFAig
 
 ##### 使用源码运行的用户请按照以下方式操作
 
