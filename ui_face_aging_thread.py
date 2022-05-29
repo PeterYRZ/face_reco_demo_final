@@ -83,9 +83,12 @@ class Ui_Face_Aging_Window(QWidget, Ui_Dialog):
         self.new_face_name = self.name_edit.text()
         target_dir = os.getcwd() + "\\data\\face_aging_npy\\" + self.new_face_name
         if not os.path.exists(target_dir):
+            if not os.path.exists(os.getcwd() + "\\data\\face_aging_npy\\"):
+                os.mkdir(os.getcwd() + "\\data\\face_aging_npy\\")
             os.mkdir(os.getcwd() + "\\data\\face_aging_npy\\" + self.new_face_name)
         image_save = cv.imdecode(np.fromfile(self.selected_image_path, dtype=np.uint8), -1)
-        cv.imwrite(target_dir + "\\" + self.new_face_name + ".jpg", image_save)
+        cv.imencode('.jpg', image_save)[1].tofile(target_dir + "\\" + self.new_face_name + ".jpg")
+        # cv.imwrite(target_dir + "\\" + self.new_face_name + ".jpg", image_save)
         self.selected_image_path = target_dir + "\\" + self.new_face_name + ".jpg"
         self.__to_import_image_display(self.selected_image_path)
         self.generate_old.setEnabled(True)
@@ -157,7 +160,7 @@ class Face_Aging_Model_Service(QThread):
             print("npy file generation completed")
         self.result_npy_file.emit(self.npy_file_path + "\\dst.npy")
         # self.ori_image_path.emit(self.origin_image_path)
-        self.log_to_show.emit("starting generating aging faces using gpu")
+        self.log_to_show.emit("starting generating aging faces using cpu")
         print("starting generating aging faces using cpu")
         self.__aging_faces_generate()
         self.log_to_show.emit("aging faces generation completed")
@@ -330,9 +333,10 @@ class Aging_Reco_Service(QThread):
                         current_img_e_distance_list.append(e_distance_tmp)
                     else:
                         current_img_e_distance_list.append(999999999)
+                print(current_img_e_distance_list)
                 similar_person_num = current_img_e_distance_list.index(min(current_img_e_distance_list))
-                if min(current_img_e_distance_list) < 0.4:
+                if min(current_img_e_distance_list) < 0.6:
                     current_image_faces[k] = self.faces_list_known[similar_person_num]
         self.log_to_show.emit(str(current_image_faces))
-        print(str(current_image_faces).split("-")[0])
+        print(str(current_image_faces[0]).split("-")[0])
         self.result_face_name.emit(str(current_image_faces[0]).split("-")[0])
